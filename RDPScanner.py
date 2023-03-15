@@ -1,39 +1,58 @@
 from subprocess import check_output as check 
 from subprocess import CalledProcessError
-from os import system
+from os import system,name
+from time import sleep
 
-print("""
+def banner():
+    system("clear")
+    print("""
 
-  _____  _____  _____   _____                 
- |  __ \|  __ \|  __ \ / ____|                
- | |__) | |  | | |__) | (___   ___ __ _ _ __  
- |  _  /| |  | |  ___/ \___ \ / __/ _` | '_ \ 
- | | \ \| |__| | |     ____) | (_| (_| | | | |
- |_|  \_\_____/|_|    |_____/ \___\__,_|_| |_|
-                                              
-            Author:  Batuhan Türkarslan
-            GitHub : https://github.com/TURKZEN       
-                               
-ÖRNEK KULLANIM : 192.168.1.0 ---> Şeklindeki Network ID ile çalışır
+    _____  _____  _____   _____                 
+    |  __ \|  __ \|  __ \ / ____|                
+    | |__) | |  | | |__) | (___   ___ __ _ _ __  
+    |  _  /| |  | |  ___/ \___ \ / __/ _` | '_ \ 
+    | | \ \| |__| | |     ____) | (_| (_| | | | |
+    |_|  \_\_____/|_|    |_____/ \___\__,_|_| |_|
+                                                
+                Author:  Batuhan Türkarslan
+                GitHub : https://github.com/TURKZEN       
+                                
+    Example : 192.168.1.0
 
-""")
-
-ip = input("Network ID : ") 
-
-ip = ip.split(".") 
-
-birinciOktek = int(ip[0])
-ikinciOktek = int(ip[1])
-ucuncuOktek = int(ip[2])
-dorduncuOktek = int(ip[3]) + 1
-
-for i in range(1,254):
-    dorduncuOktek += 1
-    ipSon = "{}.{}.{}.{}".format(birinciOktek,ikinciOktek,ucuncuOktek,dorduncuOktek)
-    try:
-        output = check(["rdesktop",ipSon])
-    except CalledProcessError:
-        print("{} ---> RDP YOK".format(ipSon))
-    else:
-        print("{} ---> RDP BULUNDU !!!!! ".format(ipSon))
+    """)
     
+def rdpscan():
+    ip = input("Network ID : ") 
+    print("Tarama Başlıyor...")
+    ip = ip.split(".") 
+
+    firstOctet = int(ip[0])
+    secondOctet = int(ip[1])
+    thirdOctet = int(ip[2])
+    fourthOctet = int(ip[3]) + 1
+
+    for i in range(1,254):
+        fourthOctet += 1
+        ip = "{}.{}.{}.{}".format(firstOctet,secondOctet,thirdOctet,fourthOctet)
+        try:
+            output = check(["rdesktop",ip])
+        except CalledProcessError:
+            system("clear")
+            print("{} ---> RDP YOK".format(ip))
+        else:
+            print("{} ---> RDP BULUNDU !!!!! ".format(ip))
+
+if __name__ == "__main__":
+    if name == "nt":
+        print("Windows desteklemiyor !")
+    else:
+        try:
+            banner()
+            rdpscan()
+        except KeyboardInterrupt:
+            print()
+            print("Çıkış Yapıldı !")
+
+        except EOFError:
+            print()
+            print("Çıkış Yapıldı !")
