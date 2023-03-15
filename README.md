@@ -21,8 +21,8 @@ RDP Scanner scans all open RDPs in the network and saves time.
 
 
 ### [+] Usage
-`cd RDPScan`
-`python3 RDPScanner.py`
+ - `cd RDPScan`
+ - `python3 RDPScanner.py`
 
 
 ### [+] Credits 
