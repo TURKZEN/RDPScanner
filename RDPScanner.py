@@ -1,19 +1,18 @@
 from subprocess import check_output as check 
 from subprocess import CalledProcessError
 from os import system,name
-from time import sleep
 
 def banner():
     system("clear")
     print("""
-
-    _____  _____  _____   _____                 
-    |  __ \|  __ \|  __ \ / ____|                
-    | |__) | |  | | |__) | (___   ___ __ _ _ __  
-    |  _  /| |  | |  ___/ \___ \ / __/ _` | '_ \ 
-    | | \ \| |__| | |     ____) | (_| (_| | | | |
-    |_|  \_\_____/|_|    |_____/ \___\__,_|_| |_|
-                                                
+        _____  _____  _____   _____                                 
+        |  __ \|  __ \|  __ \ / ____|                                
+        | |__) | |  | | |__) | (___   ___ __ _ _ __  _ __   ___ _ __ 
+        |  _  /| |  | |  ___/ \___ \ / __/ _` | '_ \| '_ \ / _ \ '__|
+        | | \ \| |__| | |     ____) | (_| (_| | | | | | | |  __/ |   
+        |_|  \_\_____/|_|    |_____/ \___\__,_|_| |_|_| |_|\___|_|   
+                                                                    
+                                                            
                 Author:  Batuhan Türkarslan
                 GitHub : https://github.com/TURKZEN       
                                 

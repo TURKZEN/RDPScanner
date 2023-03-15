@@ -1,2 +1,1 @@
-# RDPScan
-RDPScan
+[![asciicast](https://asciinema.org/a/Oje57h16XW0e8UUntPjBXqX7k.svg)](https://asciinema.org/a/Oje57h16XW0e8UUntPjBXqX7k)
