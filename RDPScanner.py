@@ -1,6 +1,7 @@
 from subprocess import check_output as check 
 from subprocess import CalledProcessError
 from os import system,name
+from time import sleep
 
 def banner():
     system("clear")
@@ -40,6 +41,14 @@ def rdpscan():
             print("{} ---> RDP YOK".format(ip))
         else:
             print("{} ---> RDP BULUNDU !!!!! ".format(ip))
+
+            with open("RDPs.txt","a") as dosya:
+                dosya.write(ip)
+                dosya.write("\n")
+
+            print("RDPs.txt dosyasına yazıldı !")
+            print("Devam ediliyor...")
+            sleep(3)
 
 if __name__ == "__main__":
     if name == "nt":
