@@ -1,7 +1,7 @@
 
 <h2 align="center"><u>RDP Scanner Tool</u></h2>
 
-![banner !](images/banner.png)
+![banner](images/banner.png)
 
 <p align="center">
 <br>
